@@ -78,17 +78,18 @@ module.exports.editPost = (req,res) =>{
 			return res.status(404).send({ message:"Post not found"});
 		}
 
-		if (result.author !== req.user.username) {
-                
-                return res.status(403).send({ message: 'You do not have permission to edit this post' });
-        }
-        if(req.user.isAdmin || result.author === req.user.username){
+		if(req.user.id !== null || req.user.isAdmin){
         	return Post.findByIdAndUpdate(req.params.postId, updatePost)
         	.then(result => {
         		res.status(200).send({mesage: "Updated post", updatedPost: result})
         	}).catch(error => errorHandler(error, req, res));
         }
         
+		if (result.author !== req.user.username) {
+                
+                return res.status(403).send({ message: 'You do not have permission to edit this post' });
+        }
+
         	
         
 
