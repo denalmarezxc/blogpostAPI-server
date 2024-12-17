@@ -5,7 +5,7 @@ const { verify, verifyAdmin } = require("../auth.js");
 
 router.post("/add-post", verify, postController.addPost);
 
-router.get("/get-posts", verify, postController.getPosts);
+router.get("/get-posts", postController.getPosts);
 
 router.get("/get-Myposts", verify, postController.getMyPosts);
 

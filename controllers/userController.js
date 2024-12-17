@@ -84,32 +84,6 @@ module.exports.loginUser = (req, res) => {
     }
 };
 
-//Check if the email already exists
-
-module.exports.checkEmailExists = (req, res) => {
-
-    //we use includes to check if the email has @ symbol
-    if(req.body.email.includes("@")){
-
-        return User.find({ email : req.body.email })
-        .then(result => {
-            if (result.length > 0) {
-                //Respond with the appropriate message based on the search result
-                //return res.status(409).send(true);
-                return res.status(409).send({ message: "Duplicate email found" });
-            } else {
-                return res.status(404).send({ message: "No duplicate email found" });
-            };
-        })
-        .catch(error => errorHandler(error, req, res));
-
-    }else{
-        //email does not contain @
-        //invalid input
-        res.status(400).send({ message: "Invalid email format" })
-    }
-    
-};
 
 //Get Profile
 
