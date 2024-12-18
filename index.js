@@ -15,10 +15,11 @@ app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 
 const corsOptions = {
-    origin: ['http://localhost:3000', 'https://blogpost-api-client-c8f6dbdm3-den-almarezs-projects.vercel.app/'],
+    origin: ['http://localhost:3000', 'https://blogpost-api-client-c8f6dbdm3-den-almarezs-projects.vercel.app/', 'https://blogpostapi-server.onrender.com/posts/get-posts'],
     credentials: true,
     optionsSuccessStatus: 200 
 };
+
 
 app.use(cors(corsOptions));
 
