@@ -15,7 +15,7 @@ app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 
 const corsOptions = {
-    origin: ['http://localhost:3000'],
+    origin: ['http://localhost:3000', 'https://blogpost-api-client-4sw3x7mma-den-almarezs-projects.vercel.app/'],
     credentials: true,
     optionsSuccessStatus: 200 
 };
