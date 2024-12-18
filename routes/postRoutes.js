@@ -9,7 +9,7 @@ router.get("/get-posts", postController.getPosts);
 
 router.get("/get-Myposts", verify, postController.getMyPosts);
 
-router.get("/view-post/:postId", verify, postController.viewPost);
+router.get("/view-post/:postId", postController.viewPost);
 
 router.patch("/edit-post/:postId", verify, postController.editPost);
 
